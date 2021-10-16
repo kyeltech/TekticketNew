@@ -1,0 +1,21 @@
+.banner-clip{
+    width: 100% !important;
+    height: 550px!important;
+    object-fit: cover;
+    object-position: 20%;
+    clip-path: polygon(500% 100%, 0% 100%, 5% 0%, 100% 0%);
+  }
+
+  .banner_text{
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    padding-top: 15%;
+    margin: 60px
+  }
+
+  .navbar form{
+    border: 1px solid #fff;
+    padding: 5px 10px;
+    border-radius: 5px !important;
+}

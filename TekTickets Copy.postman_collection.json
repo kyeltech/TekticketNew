@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "53cbba9c-8d73-4216-9054-5ebbed1a7247",
+		"name": "TekTickets Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ben123@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "ben123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/user/login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Yellow Example",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "yellow123@example.com",
+											"description": "unique",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "yellow123",
+											"description": "minimum 6",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "yellow123",
+											"description": "same with password",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "terms",
+											"value": "1",
+											"description": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/user/register",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/logout",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profile",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/profile",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ben Smith",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "23 Kings Avenue, Park Road",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "Lagos",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Ikeja",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+238186962250",
+											"description": "optional",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"description": "optional",
+											"type": "file",
+											"src": "/Users/mac/Pictures/razaq.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/user/profile/update",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"profile",
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdGVrdGlja2V0cy5jb21cL2FwaVwvdXNlclwvbG9naW4iLCJpYXQiOjE2MDU1NTA0MzYsImV4cCI6MTYwNTU1NzYzNiwibmJmIjoxNjA1NTUwNDM2LCJqdGkiOiJUdmViQXVBOGNySkEwSWI5Iiwic3ViIjoid3dvaTRpNXUiLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.3gX9U7hOG2XM9wfVTj_ZWEi29R2nWaDpMqauUoAYcGM",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Events",
+					"item": [
+						{
+							"name": "Events Listing",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/events/listing?keyword=sports",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"events",
+										"listing"
+									],
+									"query": [
+										{
+											"key": "keyword",
+											"value": "sports"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Event Details",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/events/details/backend-programming",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"events",
+										"details",
+										"backend-programming"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Menus",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/menus",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"menus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/user/categories",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add To Favourite",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/event/add/favourite",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"event",
+										"add",
+										"favourite"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove From Favourite",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/user/event/remove/favourite/1",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"event",
+										"remove",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Favourite Events",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZWt0aWNrZXQudGVzdFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTYwNjgwODU0NiwiZXhwIjoxMDIxNjA2ODA4NTQ2LCJuYmYiOjE2MDY4MDg1NDYsImp0aSI6InNhc0NVRk94dHg1N2NkelMiLCJzdWIiOiIxN2NlNjI2Ni1mNzIzLTQxMDUtYjVmNS1hMjllMzJlNDQyNTkiLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.RXMmQJbkjEg9r-EJly-OoyEJsRui8T9XSCxnhYY-oFA",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Wallet & Voucher",
+					"item": [
+						{
+							"name": "Wallet Balance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/wallet/balance",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"wallet",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Voucher Balance",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/voucher/balance",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"voucher",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZWt0aWNrZXQudGVzdFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTYwNTk2MDY5MCwiZXhwIjoxMDIxNjA1OTYwNjkwLCJuYmYiOjE2MDU5NjA2OTAsImp0aSI6IjQ2cU01MTZaNXl2alk4UHoiLCJzdWIiOiIxN2NlNjI2Ni1mNzIzLTQxMDUtYjVmNS1hMjllMzJlNDQyNTkiLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.Ymk0Xrh2AayzOiyljOkamUUblBO_GFFrrWyiAJObNT0",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Tickets",
+					"item": [
+						{
+							"name": "My Tickets",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/tickets",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validate Ticket Purchase",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "quantity",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/user/event/2/validate/ticket/purchase/1",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"event",
+										"2",
+										"validate",
+										"ticket",
+										"purchase",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90ZWt0aWNrZXQudGVzdFwvYXBpXC91c2VyXC9sb2dpbiIsImlhdCI6MTYwNTk2MDY5MCwiZXhwIjoxMDIxNjA1OTYwNjkwLCJuYmYiOjE2MDU5NjA2OTAsImp0aSI6IjQ2cU01MTZaNXl2alk4UHoiLCJzdWIiOiIxN2NlNjI2Ni1mNzIzLTQxMDUtYjVmNS1hMjllMzJlNDQyNTkiLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.Ymk0Xrh2AayzOiyljOkamUUblBO_GFFrrWyiAJObNT0",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "Notifications",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BaseUrl}}/user/notifications",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"user",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdGVrdGlja2V0cy5jb21cL2FwaVwvdXNlclwvbG9naW4iLCJpYXQiOjE2MDcyNDAyMTIsImV4cCI6MTYwNzI0NzQxMiwibmJmIjoxNjA3MjQwMjEyLCJqdGkiOiJ5SUI0Y1J2V1NBU1JBRFlDIiwic3ViIjoid3dvaTRpNXUiLCJwcnYiOiJmNmI3MTU0OWRiOGMyYzQyYjc1ODI3YWE0NGYwMmI3ZWU1MjlkMjRkIn0.r4AXClZ-tI7ghMsjbiDe-KYJoINCOBAPSmQo0Wjp2jY",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Organizer",
+			"item": [
+				{
+					"name": "Validate Event Tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
